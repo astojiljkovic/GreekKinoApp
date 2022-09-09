@@ -10,6 +10,7 @@ import UIKit
 class APICaller {
     static let shared = APICaller()
     private init() {}
+    
     // this could use async await, check it out
     func fetchData(completion: @escaping(Result<[Game], Error>) -> Void) {
         
@@ -28,6 +29,5 @@ class APICaller {
             }
         }
         task.resume()
-        
     }
 }

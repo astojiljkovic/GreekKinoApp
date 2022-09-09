@@ -27,7 +27,7 @@ class LandingViewController: UIViewController {
         APICaller.shared.fetchData { [weak self] result in
             switch result {
             case .success(let games):
-                print("woo games")
+                self?.dataSource = games
             case .failure(let error):
                 print(error)
             }
