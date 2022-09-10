@@ -9,6 +9,8 @@ import UIKit
 
 class LandingViewController: UIViewController {
     
+    // MARK: - Properites
+    
     private var dataSource: [Game]? {
         didSet {
             table.reloadData()
@@ -16,6 +18,8 @@ class LandingViewController: UIViewController {
     }
     
     @IBOutlet weak var table: UITableView!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,8 @@ class LandingViewController: UIViewController {
         table.register(LandingTableViewCell.nib, forCellReuseIdentifier: LandingTableViewCell.id)
     }
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension LandingViewController: UITableViewDelegate {
     

@@ -19,6 +19,8 @@
 		5506D29528CC83D10044EAF4 /* LandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29328CC83D10044EAF4 /* LandingTableViewCell.swift */; };
 		5506D29628CC83D10044EAF4 /* LandingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5506D29428CC83D10044EAF4 /* LandingTableViewCell.xib */; };
 		5506D29828CC84210044EAF4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29728CC84210044EAF4 /* Utils.swift */; };
+		5506D29A28CCCC6F0044EAF4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29928CCCC6E0044EAF4 /* Extensions.swift */; };
+		5506D29D28CCD15C0044EAF4 /* LandingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29C28CCD15C0044EAF4 /* LandingHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		5506D29328CC83D10044EAF4 /* LandingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingTableViewCell.swift; sourceTree = "<group>"; };
 		5506D29428CC83D10044EAF4 /* LandingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandingTableViewCell.xib; sourceTree = "<group>"; };
 		5506D29728CC84210044EAF4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		5506D29928CCCC6E0044EAF4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5506D29C28CCD15C0044EAF4 /* LandingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 				5506D28928CB8F6B0044EAF4 /* Router.swift */,
 				5506D28C28CB93360044EAF4 /* APICaller.swift */,
 				5506D29728CC84210044EAF4 /* Utils.swift */,
+				5506D29928CCCC6E0044EAF4 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 		5506D29128CB94EF0044EAF4 /* Landing */ = {
 			isa = PBXGroup;
 			children = (
+				5506D29B28CCD14A0044EAF4 /* LandingHeaderView */,
 				5506D29228CC837A0044EAF4 /* LandingTableViewCell */,
 				5506D27928CB88D00044EAF4 /* LandingViewController.swift */,
 			);
@@ -115,6 +121,14 @@
 				5506D29428CC83D10044EAF4 /* LandingTableViewCell.xib */,
 			);
 			path = LandingTableViewCell;
+			sourceTree = "<group>";
+		};
+		5506D29B28CCD14A0044EAF4 /* LandingHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				5506D29C28CCD15C0044EAF4 /* LandingHeaderView.swift */,
+			);
+			path = LandingHeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +204,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5506D28A28CB8F6B0044EAF4 /* Router.swift in Sources */,
+				5506D29A28CCCC6F0044EAF4 /* Extensions.swift in Sources */,
 				5506D27A28CB88D00044EAF4 /* LandingViewController.swift in Sources */,
 				5506D27628CB88D00044EAF4 /* AppDelegate.swift in Sources */,
 				5506D28D28CB93360044EAF4 /* APICaller.swift in Sources */,
+				5506D29D28CCD15C0044EAF4 /* LandingHeaderView.swift in Sources */,
 				5506D27828CB88D00044EAF4 /* SceneDelegate.swift in Sources */,
 				5506D29028CB93A60044EAF4 /* GameModel.swift in Sources */,
 				5506D29528CC83D10044EAF4 /* LandingTableViewCell.swift in Sources */,

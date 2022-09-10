@@ -17,7 +17,12 @@ class LandingTableViewCell: UITableViewCell, XibTableCellInitializable {
         super.awakeFromNib()
     }
     
+    private func setup() {
+        // TODO: change font, size, etc...
+    }
+    
     func set(with model: Game) {
-        gameStartTimeLabel.text = "test"
+        let date = Date(timeIntervalSince1970: Double(model.drawTime/1000))
+        gameStartTimeLabel.text = date.parsedTime()
     }
 }
