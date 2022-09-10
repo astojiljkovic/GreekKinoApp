@@ -14,6 +14,7 @@ class LandingHeaderView: UIView {
     lazy var gameNameLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Test"
         label.numberOfLines = 0
         return label
     }()
@@ -21,6 +22,7 @@ class LandingHeaderView: UIView {
     lazy var startingTimeLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "TEST"
         label.numberOfLines = 0
         return label
     }()
@@ -28,6 +30,7 @@ class LandingHeaderView: UIView {
     lazy var timeRemainingLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = " testenina"
         label.numberOfLines = 0
         return label
     }()
@@ -37,8 +40,14 @@ class LandingHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(greaterThanOrEqualToConstant: 80).isActive = true
+        widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         backgroundColor = .systemGray4
+        addSubview(gameNameLabel)
+        addSubview(startingTimeLabel)
+        addSubview(timeRemainingLabel)
         applyConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -46,16 +55,27 @@ class LandingHeaderView: UIView {
     }
     
     private func applyConstraints() {
-        addSubview(gameNameLabel)
-        addSubview(startingTimeLabel)
-        addSubview(timeRemainingLabel)
         
         let gameNameLabelConstraints = [
             gameNameLabel.topAnchor.constraint(equalTo:topAnchor, constant: 10),
             gameNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            gameNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 20)
+            gameNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+        ]
+        
+        let startingTimeLabelConstraints = [
+            startingTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            startingTimeLabel.topAnchor.constraint(equalTo: gameNameLabel.bottomAnchor, constant: 10),
+            startingTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+        ]
+        
+        let timeRemainingLabelConstraints = [
+            timeRemainingLabel.topAnchor.constraint(equalTo: gameNameLabel.bottomAnchor, constant: 10),
+            timeRemainingLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            timeRemainingLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ]
         
         NSLayoutConstraint.activate(gameNameLabelConstraints)
+        NSLayoutConstraint.activate(startingTimeLabelConstraints)
+        NSLayoutConstraint.activate(timeRemainingLabelConstraints)
     }
 }

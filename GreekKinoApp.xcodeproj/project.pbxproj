@@ -21,6 +21,8 @@
 		5506D29828CC84210044EAF4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29728CC84210044EAF4 /* Utils.swift */; };
 		5506D29A28CCCC6F0044EAF4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29928CCCC6E0044EAF4 /* Extensions.swift */; };
 		5506D29D28CCD15C0044EAF4 /* LandingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29C28CCD15C0044EAF4 /* LandingHeaderView.swift */; };
+		5506D29F28CD304A0044EAF4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29E28CD304A0044EAF4 /* TabBarViewController.swift */; };
+		5506D2A128CD39EB0044EAF4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2A028CD39EB0044EAF4 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		5506D29728CC84210044EAF4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5506D29928CCCC6E0044EAF4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5506D29C28CCD15C0044EAF4 /* LandingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingHeaderView.swift; sourceTree = "<group>"; };
+		5506D29E28CD304A0044EAF4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		5506D2A028CD39EB0044EAF4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 			children = (
 				5506D27528CB88D00044EAF4 /* AppDelegate.swift */,
 				5506D27728CB88D00044EAF4 /* SceneDelegate.swift */,
+				5506D29E28CD304A0044EAF4 /* TabBarViewController.swift */,
 				5506D29128CB94EF0044EAF4 /* Landing */,
 				5506D28E28CB934F0044EAF4 /* Model */,
 				5506D28B28CB8F850044EAF4 /* Utils */,
@@ -92,6 +97,7 @@
 				5506D28C28CB93360044EAF4 /* APICaller.swift */,
 				5506D29728CC84210044EAF4 /* Utils.swift */,
 				5506D29928CCCC6E0044EAF4 /* Extensions.swift */,
+				5506D2A028CD39EB0044EAF4 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			files = (
 				5506D28A28CB8F6B0044EAF4 /* Router.swift in Sources */,
 				5506D29A28CCCC6F0044EAF4 /* Extensions.swift in Sources */,
+				5506D29F28CD304A0044EAF4 /* TabBarViewController.swift in Sources */,
 				5506D27A28CB88D00044EAF4 /* LandingViewController.swift in Sources */,
 				5506D27628CB88D00044EAF4 /* AppDelegate.swift in Sources */,
 				5506D28D28CB93360044EAF4 /* APICaller.swift in Sources */,
@@ -213,6 +220,7 @@
 				5506D29028CB93A60044EAF4 /* GameModel.swift in Sources */,
 				5506D29528CC83D10044EAF4 /* LandingTableViewCell.swift in Sources */,
 				5506D29828CC84210044EAF4 /* Utils.swift in Sources */,
+				5506D2A128CD39EB0044EAF4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

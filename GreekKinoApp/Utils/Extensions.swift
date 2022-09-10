@@ -22,3 +22,12 @@ extension Date {
         return dateString
     }
 }
+
+extension UIStoryboard {
+    static var main: UIStoryboard { return UIStoryboard(name: "Main", bundle: Bundle.main) }
+    
+    static var tabBarViewController: TabBarViewController {
+        guard let vc = UIStoryboard.main.instantiateViewController(withIdentifier: Storyboard.tabBarViewControllerID.rawValue) as? TabBarViewController else { fatalError() }
+        return vc
+    }
+}

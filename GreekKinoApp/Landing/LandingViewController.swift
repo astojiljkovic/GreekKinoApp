@@ -17,6 +17,8 @@ class LandingViewController: UIViewController {
         }
     }
     
+    var headerView: LandingHeaderView?
+    
     @IBOutlet weak var table: UITableView!
     
     // MARK: - Lifecycle
@@ -29,6 +31,12 @@ class LandingViewController: UIViewController {
     private func setup() {
         fetchData()
         registerNibs()
+        setupTable()
+    }
+    
+    private func setupTable() {
+        headerView = LandingHeaderView(frame: .zero)
+        table.tableHeaderView = headerView
     }
     
     private func fetchData() {
@@ -44,15 +52,24 @@ class LandingViewController: UIViewController {
             }
         }
     }
+    
     private func registerNibs() {
         table.register(LandingTableViewCell.nib, forCellReuseIdentifier: LandingTableViewCell.id)
     }
+    
+    private func transitionToTabBarVC() {
+        let vc = UIStoryboard.tabBarViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension LandingViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        transitionToTabBarVC()
+    }
 }
 
 extension LandingViewController: UITableViewDataSource {
