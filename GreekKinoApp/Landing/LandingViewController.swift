@@ -19,20 +19,29 @@ class LandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
+        setup()
     }
     
+    private func setup() {
+        fetchData()
+        registerNibs()
+    }
     
     private func fetchData() {
         APICaller.shared.fetchData { [weak self] result in
             switch result {
             case .success(let games):
-                self?.dataSource = games
+                DispatchQueue.main.async {
+                    self?.dataSource = games
+                }
+                
             case .failure(let error):
                 print(error)
             }
-        
         }
+    }
+    private func registerNibs() {
+        table.register(LandingTableViewCell.nib, forCellReuseIdentifier: LandingTableViewCell.id)
     }
 }
 
@@ -46,6 +55,11 @@ extension LandingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LandingTableViewCell.id) as? LandingTableViewCell else { return UITableViewCell() }
+        if let games = dataSource {
+            cell.set(with: games[indexPath.row])
+            return cell
+        }
         return UITableViewCell()
     }
 }

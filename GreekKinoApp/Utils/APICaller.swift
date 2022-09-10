@@ -21,8 +21,6 @@ class APICaller {
             
             do {
                 let results = try JSONDecoder().decode([Game].self, from: data)
-                print(results)
-                
                 completion(.success(results))
             } catch {
                 completion(.failure(error))
