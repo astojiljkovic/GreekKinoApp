@@ -14,7 +14,8 @@ class LandingHeaderView: UIView {
     lazy var gameNameLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Test"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.text = "Greek kino(20/80)"
         label.numberOfLines = 0
         return label
     }()
@@ -22,7 +23,8 @@ class LandingHeaderView: UIView {
     lazy var startingTimeLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "TEST"
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.text = "Vreme izvlacenja"
         label.numberOfLines = 0
         return label
     }()
@@ -30,7 +32,8 @@ class LandingHeaderView: UIView {
     lazy var timeRemainingLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = " testenina"
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.text = "Preostalo za uplatu"
         label.numberOfLines = 0
         return label
     }()
@@ -64,12 +67,12 @@ class LandingHeaderView: UIView {
         
         let startingTimeLabelConstraints = [
             startingTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            startingTimeLabel.topAnchor.constraint(equalTo: gameNameLabel.bottomAnchor, constant: 10),
+            startingTimeLabel.topAnchor.constraint(equalTo: gameNameLabel.bottomAnchor, constant: 20),
             startingTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ]
         
         let timeRemainingLabelConstraints = [
-            timeRemainingLabel.topAnchor.constraint(equalTo: gameNameLabel.bottomAnchor, constant: 10),
+            timeRemainingLabel.topAnchor.constraint(equalTo: gameNameLabel.bottomAnchor, constant: 20),
             timeRemainingLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             timeRemainingLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ]

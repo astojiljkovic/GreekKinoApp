@@ -24,6 +24,10 @@ class TalonViewController: UIViewController {
     private func setupNumbersCollectionView() {
         numbersCollectionView.dataSource = self
         numbersCollectionView.delegate = self
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        numbersCollectionView.collectionViewLayout = layout
     }
     
     private func registerNibs() {
@@ -50,6 +54,7 @@ extension TalonViewController: UICollectionViewDataSource {
 
 extension TalonViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("pressed")
+        guard let cell = numbersCollectionView.cellForItem(at: indexPath) as? TalonNumbersCollectionViewCell else { return }
+        cell.checkIfCellIsSelected()
     }
 }

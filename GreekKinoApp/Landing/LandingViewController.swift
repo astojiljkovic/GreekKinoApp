@@ -46,7 +46,6 @@ class LandingViewController: UIViewController {
                 DispatchQueue.main.async {
                     self?.dataSource = games
                 }
-                
             case .failure(let error):
                 print(error)
             }

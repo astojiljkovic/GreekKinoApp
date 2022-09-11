@@ -21,10 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="151" height="101"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="260-Mq-yoG">
-                                <rect key="frame" x="0.0" y="0.0" width="151" height="101"/>
+                                <rect key="frame" x="5" y="5" width="141" height="91"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFe-i6-taL">
-                                        <rect key="frame" x="10" y="10" width="131" height="81"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="141" height="91"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -32,19 +32,19 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="tFe-i6-taL" firstAttribute="top" secondItem="260-Mq-yoG" secondAttribute="top" constant="10" id="GC6-u1-JJp"/>
-                                    <constraint firstItem="tFe-i6-taL" firstAttribute="leading" secondItem="260-Mq-yoG" secondAttribute="leading" constant="10" id="WEU-Ca-aYC"/>
-                                    <constraint firstAttribute="bottom" secondItem="tFe-i6-taL" secondAttribute="bottom" constant="10" id="iTT-0E-24v"/>
-                                    <constraint firstAttribute="trailing" secondItem="tFe-i6-taL" secondAttribute="trailing" constant="10" id="jgP-ke-erQ"/>
+                                    <constraint firstItem="tFe-i6-taL" firstAttribute="top" secondItem="260-Mq-yoG" secondAttribute="top" id="GC6-u1-JJp"/>
+                                    <constraint firstItem="tFe-i6-taL" firstAttribute="leading" secondItem="260-Mq-yoG" secondAttribute="leading" id="WEU-Ca-aYC"/>
+                                    <constraint firstAttribute="bottom" secondItem="tFe-i6-taL" secondAttribute="bottom" id="iTT-0E-24v"/>
+                                    <constraint firstAttribute="trailing" secondItem="tFe-i6-taL" secondAttribute="trailing" id="jgP-ke-erQ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="260-Mq-yoG" secondAttribute="trailing" id="b2S-TY-w2t"/>
-                            <constraint firstItem="260-Mq-yoG" firstAttribute="leading" secondItem="tOE-5V-VTt" secondAttribute="leading" id="cyM-Te-W1g"/>
-                            <constraint firstItem="260-Mq-yoG" firstAttribute="top" secondItem="tOE-5V-VTt" secondAttribute="top" id="fHB-Tr-UT9"/>
-                            <constraint firstAttribute="bottom" secondItem="260-Mq-yoG" secondAttribute="bottom" id="k3q-xb-gMx"/>
+                            <constraint firstAttribute="trailing" secondItem="260-Mq-yoG" secondAttribute="trailing" constant="5" id="b2S-TY-w2t"/>
+                            <constraint firstItem="260-Mq-yoG" firstAttribute="leading" secondItem="tOE-5V-VTt" secondAttribute="leading" constant="5" id="cyM-Te-W1g"/>
+                            <constraint firstItem="260-Mq-yoG" firstAttribute="top" secondItem="tOE-5V-VTt" secondAttribute="top" constant="5" id="fHB-Tr-UT9"/>
+                            <constraint firstAttribute="bottom" secondItem="260-Mq-yoG" secondAttribute="bottom" constant="5" id="k3q-xb-gMx"/>
                         </constraints>
                     </view>
                 </subviews>
