@@ -30,4 +30,10 @@ extension UIStoryboard {
         guard let vc = UIStoryboard.main.instantiateViewController(withIdentifier: Storyboard.tabBarViewControllerID.rawValue) as? TabBarViewController else { fatalError() }
         return vc
     }
+    
+    static var talonViewController: TalonViewController {
+        guard let vc = UIStoryboard.main.instantiateViewController(withIdentifier: Storyboard.talonViewControllerID.rawValue) as? TalonViewController else {
+            fatalError() }
+        return vc
+    }
 }

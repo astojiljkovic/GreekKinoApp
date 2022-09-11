@@ -56,7 +56,7 @@ class LandingViewController: UIViewController {
     private func registerNibs() {
         table.register(LandingTableViewCell.nib, forCellReuseIdentifier: LandingTableViewCell.id)
     }
-    
+    // TODO: Check so it doesn't always push on the stack when clicked on table row
     private func transitionToTabBarVC() {
         let vc = UIStoryboard.tabBarViewController
         navigationController?.pushViewController(vc, animated: true)

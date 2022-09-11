@@ -68,6 +68,6 @@ class TabBarViewController: UITabBarController {
             tab.imageInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         }
         tabBar.tintColor = .systemYellow
-        tabBar.barTintColor = .systemYellow
+//        tabBar.barTintColor = .systemYellow
     }
 }

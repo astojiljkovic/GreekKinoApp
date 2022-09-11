@@ -22,3 +22,16 @@ extension XibTableCellInitializable where Self: UITableViewCell {
     }
 }
 
+protocol XibCollectionViewCellInitializable {
+    static var nib: UINib { get }
+    static var id: String { get }
+}
+
+extension XibCollectionViewCellInitializable where Self: UICollectionViewCell {
+    static var nib: UINib {
+        return UINib(nibName: String(describing: self), bundle: Bundle.main)
+    }
+    static var id: String {
+        return String(describing: self)
+    }
+}

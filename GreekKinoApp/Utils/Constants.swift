@@ -9,4 +9,5 @@ import UIKit
 
 enum Storyboard: String {
     case tabBarViewControllerID = "tabBar_vc"
+    case talonViewControllerID = "talon_vc"
 }

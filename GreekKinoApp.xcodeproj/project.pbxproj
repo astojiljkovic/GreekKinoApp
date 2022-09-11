@@ -23,6 +23,9 @@
 		5506D29D28CCD15C0044EAF4 /* LandingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29C28CCD15C0044EAF4 /* LandingHeaderView.swift */; };
 		5506D29F28CD304A0044EAF4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D29E28CD304A0044EAF4 /* TabBarViewController.swift */; };
 		5506D2A128CD39EB0044EAF4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2A028CD39EB0044EAF4 /* Constants.swift */; };
+		5506D2A428CDF3890044EAF4 /* TalonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2A328CDF3890044EAF4 /* TalonViewController.swift */; };
+		5506D2A828CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2A628CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.swift */; };
+		5506D2A928CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5506D2A728CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		5506D29C28CCD15C0044EAF4 /* LandingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingHeaderView.swift; sourceTree = "<group>"; };
 		5506D29E28CD304A0044EAF4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5506D2A028CD39EB0044EAF4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5506D2A328CDF3890044EAF4 /* TalonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalonViewController.swift; sourceTree = "<group>"; };
+		5506D2A628CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalonNumbersCollectionViewCell.swift; sourceTree = "<group>"; };
+		5506D2A728CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalonNumbersCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 				5506D27728CB88D00044EAF4 /* SceneDelegate.swift */,
 				5506D29E28CD304A0044EAF4 /* TabBarViewController.swift */,
 				5506D29128CB94EF0044EAF4 /* Landing */,
+				5506D2A228CDF3630044EAF4 /* Talon */,
 				5506D28E28CB934F0044EAF4 /* Model */,
 				5506D28B28CB8F850044EAF4 /* Utils */,
 				5506D27B28CB88D00044EAF4 /* Main.storyboard */,
@@ -135,6 +142,24 @@
 				5506D29C28CCD15C0044EAF4 /* LandingHeaderView.swift */,
 			);
 			path = LandingHeaderView;
+			sourceTree = "<group>";
+		};
+		5506D2A228CDF3630044EAF4 /* Talon */ = {
+			isa = PBXGroup;
+			children = (
+				5506D2A528CDF7B90044EAF4 /* TalonNumbersCollectionViewCell */,
+				5506D2A328CDF3890044EAF4 /* TalonViewController.swift */,
+			);
+			path = Talon;
+			sourceTree = "<group>";
+		};
+		5506D2A528CDF7B90044EAF4 /* TalonNumbersCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5506D2A628CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.swift */,
+				5506D2A728CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib */,
+			);
+			path = TalonNumbersCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +222,7 @@
 			files = (
 				5506D28228CB88D60044EAF4 /* LaunchScreen.storyboard in Resources */,
 				5506D29628CC83D10044EAF4 /* LandingTableViewCell.xib in Resources */,
+				5506D2A928CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib in Resources */,
 				5506D27F28CB88D60044EAF4 /* Assets.xcassets in Resources */,
 				5506D27D28CB88D00044EAF4 /* Main.storyboard in Resources */,
 			);
@@ -211,11 +237,13 @@
 			files = (
 				5506D28A28CB8F6B0044EAF4 /* Router.swift in Sources */,
 				5506D29A28CCCC6F0044EAF4 /* Extensions.swift in Sources */,
+				5506D2A828CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.swift in Sources */,
 				5506D29F28CD304A0044EAF4 /* TabBarViewController.swift in Sources */,
 				5506D27A28CB88D00044EAF4 /* LandingViewController.swift in Sources */,
 				5506D27628CB88D00044EAF4 /* AppDelegate.swift in Sources */,
 				5506D28D28CB93360044EAF4 /* APICaller.swift in Sources */,
 				5506D29D28CCD15C0044EAF4 /* LandingHeaderView.swift in Sources */,
+				5506D2A428CDF3890044EAF4 /* TalonViewController.swift in Sources */,
 				5506D27828CB88D00044EAF4 /* SceneDelegate.swift in Sources */,
 				5506D29028CB93A60044EAF4 /* GameModel.swift in Sources */,
 				5506D29528CC83D10044EAF4 /* LandingTableViewCell.swift in Sources */,
