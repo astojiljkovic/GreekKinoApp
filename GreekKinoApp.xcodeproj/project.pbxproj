@@ -26,6 +26,8 @@
 		5506D2A428CDF3890044EAF4 /* TalonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2A328CDF3890044EAF4 /* TalonViewController.swift */; };
 		5506D2A828CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2A628CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.swift */; };
 		5506D2A928CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5506D2A728CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib */; };
+		5506D2AD28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2AB28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.swift */; };
+		5506D2AE28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5506D2AC28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		5506D2A328CDF3890044EAF4 /* TalonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalonViewController.swift; sourceTree = "<group>"; };
 		5506D2A628CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalonNumbersCollectionViewCell.swift; sourceTree = "<group>"; };
 		5506D2A728CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalonNumbersCollectionViewCell.xib; sourceTree = "<group>"; };
+		5506D2AB28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfBallsAndOddsCollectionViewCell.swift; sourceTree = "<group>"; };
+		5506D2AC28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberOfBallsAndOddsCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 		5506D2A228CDF3630044EAF4 /* Talon */ = {
 			isa = PBXGroup;
 			children = (
+				5506D2AA28CEA0490044EAF4 /* NumberOfBallsAndOddsCell */,
 				5506D2A528CDF7B90044EAF4 /* TalonNumbersCollectionViewCell */,
 				5506D2A328CDF3890044EAF4 /* TalonViewController.swift */,
 			);
@@ -160,6 +165,15 @@
 				5506D2A728CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib */,
 			);
 			path = TalonNumbersCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		5506D2AA28CEA0490044EAF4 /* NumberOfBallsAndOddsCell */ = {
+			isa = PBXGroup;
+			children = (
+				5506D2AB28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.swift */,
+				5506D2AC28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.xib */,
+			);
+			path = NumberOfBallsAndOddsCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5506D28228CB88D60044EAF4 /* LaunchScreen.storyboard in Resources */,
+				5506D2AE28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.xib in Resources */,
 				5506D29628CC83D10044EAF4 /* LandingTableViewCell.xib in Resources */,
 				5506D2A928CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib in Resources */,
 				5506D27F28CB88D60044EAF4 /* Assets.xcassets in Resources */,
@@ -245,6 +260,7 @@
 				5506D29D28CCD15C0044EAF4 /* LandingHeaderView.swift in Sources */,
 				5506D2A428CDF3890044EAF4 /* TalonViewController.swift in Sources */,
 				5506D27828CB88D00044EAF4 /* SceneDelegate.swift in Sources */,
+				5506D2AD28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.swift in Sources */,
 				5506D29028CB93A60044EAF4 /* GameModel.swift in Sources */,
 				5506D29528CC83D10044EAF4 /* LandingTableViewCell.swift in Sources */,
 				5506D29828CC84210044EAF4 /* Utils.swift in Sources */,

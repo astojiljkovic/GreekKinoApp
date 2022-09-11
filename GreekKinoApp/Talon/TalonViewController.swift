@@ -11,16 +11,54 @@ class TalonViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var numbersCollectionView: UICollectionView!
+    private var selectedGame: Game?
     
+    @IBOutlet weak var selectedGameInfoView: UIView!
+    @IBOutlet weak var selectedGameInfoLabel: UILabel!
+    
+    @IBOutlet weak var numberOfBallsAndOddsView: UIView!
+    @IBOutlet weak var numberOfBallsLabel: UILabel!
+    @IBOutlet weak var oddsLabel: UILabel!
+    
+    @IBOutlet weak var numberOfBallsAndOddsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var numbersCollectionView: UICollectionView!
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSelectedGameInfo()
         registerNibs()
         setupNumbersCollectionView()
+        setupNumberOfBallsAndOddsCollectionView()
     }
+    
+    private func setupSelectedGameInfo() {
+        
+        selectedGameInfoView.backgroundColor = .systemGray3
+        if let selectedGame = selectedGame {
+            selectedGameInfoLabel.text = "Vreme izvlacenja \(Date(timeIntervalSince1970: Double(selectedGame.drawTime/1000)).parsedTime()) | Kolo: \(selectedGame.drawId)"
+        }
+        numberOfBallsAndOddsView.backgroundColor = .systemGray4
+        numberOfBallsLabel.textAlignment = .center
+        numberOfBallsLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        numberOfBallsLabel.text = "B.K"
+        oddsLabel.textAlignment = .center
+        oddsLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        oddsLabel.text = "Kvota"
+    }
+    
+    private func setupNumberOfBallsAndOddsCollectionView() {
+//        numberOfBallsAndOddsCollectionView.delegate = self
+//        numberOfBallsAndOddsCollectionView.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        numberOfBallsAndOddsCollectionView.collectionViewLayout = layout
+    }
+    
     private func setupNumbersCollectionView() {
         numbersCollectionView.dataSource = self
         numbersCollectionView.delegate = self
@@ -32,6 +70,11 @@ class TalonViewController: UIViewController {
     
     private func registerNibs() {
         numbersCollectionView.register(TalonNumbersCollectionViewCell.nib, forCellWithReuseIdentifier: TalonNumbersCollectionViewCell.id)
+        numberOfBallsAndOddsCollectionView.register(NumberOfBallsAndOddsCollectionViewCell.nib, forCellWithReuseIdentifier: NumberOfBallsAndOddsCollectionViewCell.id)
+    }
+    
+    func setSelectedGame(selectedGame: Game) {
+        self.selectedGame = selectedGame
     }
 }
 
@@ -39,10 +82,19 @@ class TalonViewController: UIViewController {
 
 extension TalonViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == numberOfBallsAndOddsCollectionView {
+            return 15
+        }
         return 80
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == numberOfBallsAndOddsCollectionView {
+            guard let cell = numberOfBallsAndOddsCollectionView.dequeueReusableCell(withReuseIdentifier: NumberOfBallsAndOddsCollectionViewCell.id, for: indexPath) as? NumberOfBallsAndOddsCollectionViewCell else { return UICollectionViewCell()}
+            cell.set(numOfBalls: indexPath.row)
+            return cell
+        }
+        
         guard let cell = numbersCollectionView.dequeueReusableCell(withReuseIdentifier: TalonNumbersCollectionViewCell.id, for: indexPath) as? TalonNumbersCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -54,7 +106,9 @@ extension TalonViewController: UICollectionViewDataSource {
 
 extension TalonViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = numbersCollectionView.cellForItem(at: indexPath) as? TalonNumbersCollectionViewCell else { return }
-        cell.checkIfCellIsSelected()
+        if collectionView == numbersCollectionView {
+            guard let cell = numbersCollectionView.cellForItem(at: indexPath) as? TalonNumbersCollectionViewCell else { return }
+            cell.checkIfCellIsSelected()
+        }
     }
 }
