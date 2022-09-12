@@ -32,6 +32,7 @@
 		5506D2B428CFD5080044EAF4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2B328CFD5080044EAF4 /* ResultsViewController.swift */; };
 		5506D2B828CFD7440044EAF4 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2B628CFD7440044EAF4 /* ResultsTableViewCell.swift */; };
 		5506D2B928CFD7440044EAF4 /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5506D2B728CFD7440044EAF4 /* ResultsTableViewCell.xib */; };
+		5506D2BB28CFFA6F0044EAF4 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2BA28CFFA6F0044EAF4 /* ResultModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		5506D2B328CFD5080044EAF4 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		5506D2B628CFD7440044EAF4 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		5506D2B728CFD7440044EAF4 /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
+		5506D2BA28CFFA6F0044EAF4 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				5506D28F28CB93A60044EAF4 /* GameModel.swift */,
+				5506D2BA28CFFA6F0044EAF4 /* ResultModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				5506D29D28CCD15C0044EAF4 /* LandingHeaderView.swift in Sources */,
 				5506D2A428CDF3890044EAF4 /* TalonViewController.swift in Sources */,
 				5506D27828CB88D00044EAF4 /* SceneDelegate.swift in Sources */,
+				5506D2BB28CFFA6F0044EAF4 /* ResultModel.swift in Sources */,
 				5506D2AD28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.swift in Sources */,
 				5506D29028CB93A60044EAF4 /* GameModel.swift in Sources */,
 				5506D29528CC83D10044EAF4 /* LandingTableViewCell.swift in Sources */,

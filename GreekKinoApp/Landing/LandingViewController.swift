@@ -44,7 +44,7 @@ class LandingViewController: UIViewController {
     }
     
     private func fetchData() {
-        APICaller.shared.fetchData { [weak self] result in
+        APICaller.shared.fetchUpcomingGames { [weak self] result in
             switch result {
             case .success(let games):
                 DispatchQueue.main.async {

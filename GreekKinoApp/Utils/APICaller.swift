@@ -12,9 +12,9 @@ class APICaller {
     private init() {}
     
     // this could use async await, check it out
-    func fetchData(completion: @escaping(Result<[Game], Error>) -> Void) {
+    func fetchUpcomingGames(completion: @escaping(Result<[Game], Error>) -> Void) {
         
-        guard let url = URL(string: Constats.api) else { return }
+        guard let url = URL(string: Constats.apiForUpcoming) else { return }
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return }
@@ -27,5 +27,9 @@ class APICaller {
             }
         }
         task.resume()
+    }
+    
+    func fetchResults(completion: @escaping(Result<[GameResult],Error>) -> Void) {
+        // TODO: need to get 2 dates, yesterday and today so i can put them into url, check notlfix
     }
 }
