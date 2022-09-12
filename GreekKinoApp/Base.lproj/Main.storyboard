@@ -283,27 +283,33 @@
         <!--Item-->
         <scene sceneID="kIN-I8-mwt">
             <objects>
-                <viewController id="QF9-YJ-FLi" sceneMemberID="viewController">
+                <viewController id="QF9-YJ-FLi" customClass="ResultsViewController" customModule="GreekKinoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="smw-Zv-LrM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="results not implemented" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtt-64-DsS">
-                                <rect key="frame" x="50" y="447" width="314" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QKA-fb-91v">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="QF9-YJ-FLi" id="jPS-8q-JlS"/>
+                                    <outlet property="delegate" destination="QF9-YJ-FLi" id="hvq-EJ-sRW"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xkS-id-gcE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Dtt-64-DsS" firstAttribute="top" secondItem="xkS-id-gcE" secondAttribute="top" constant="403" id="8cx-b0-GQd"/>
-                            <constraint firstItem="xkS-id-gcE" firstAttribute="trailing" secondItem="Dtt-64-DsS" secondAttribute="trailing" constant="50" id="Bpy-FJ-8EZ"/>
-                            <constraint firstItem="Dtt-64-DsS" firstAttribute="leading" secondItem="xkS-id-gcE" secondAttribute="leading" constant="50" id="ioJ-5G-mUW"/>
+                            <constraint firstItem="xkS-id-gcE" firstAttribute="trailing" secondItem="QKA-fb-91v" secondAttribute="trailing" id="8t8-rv-ZgS"/>
+                            <constraint firstItem="QKA-fb-91v" firstAttribute="top" secondItem="xkS-id-gcE" secondAttribute="top" id="Uuh-Qa-rC5"/>
+                            <constraint firstItem="QKA-fb-91v" firstAttribute="leading" secondItem="xkS-id-gcE" secondAttribute="leading" id="rWp-5w-ehA"/>
+                            <constraint firstItem="xkS-id-gcE" firstAttribute="bottom" secondItem="QKA-fb-91v" secondAttribute="bottom" id="yaR-zc-u5V"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="eJ1-iS-gEf"/>
+                    <connections>
+                        <outlet property="tableView" destination="QKA-fb-91v" id="oKf-iT-aPz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28g-kk-dig" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
