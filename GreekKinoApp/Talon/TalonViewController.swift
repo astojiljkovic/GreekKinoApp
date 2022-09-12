@@ -22,17 +22,30 @@ class TalonViewController: UIViewController {
     
     @IBOutlet weak var numberOfBallsAndOddsCollectionView: UICollectionView!
     
+    @IBOutlet weak var numberOfSelectedBallsLabel: UILabel!
+    @IBOutlet weak var numberOfSelectedBallsValueLabel: UILabel!
+    @IBOutlet weak var timeRemeiningLabel: UILabel!
+    @IBOutlet weak var timeRemainingValueLabel: UILabel!
+    
+    
     @IBOutlet weak var numbersCollectionView: UICollectionView!
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupSelectedGameInfo()
         registerNibs()
         setupNumbersCollectionView()
         setupNumberOfBallsAndOddsCollectionView()
     }
+    
+    private func setup() {
+        numberOfSelectedBallsLabel.text = "Br. izabranih loptica:"
+        timeRemeiningLabel.text = "Preostalo vreme:"
+    }
+    
     
     private func setupSelectedGameInfo() {
         
@@ -50,12 +63,12 @@ class TalonViewController: UIViewController {
     }
     
     private func setupNumberOfBallsAndOddsCollectionView() {
-//        numberOfBallsAndOddsCollectionView.delegate = self
-//        numberOfBallsAndOddsCollectionView.dataSource = self
+        numberOfBallsAndOddsCollectionView.backgroundColor = .systemGray4
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
+        layout.itemSize = CGSize(width: numberOfBallsAndOddsCollectionView.bounds.height, height: numberOfBallsAndOddsCollectionView.bounds.height)
         numberOfBallsAndOddsCollectionView.collectionViewLayout = layout
     }
     
@@ -81,6 +94,7 @@ class TalonViewController: UIViewController {
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 
 extension TalonViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == numberOfBallsAndOddsCollectionView {
             return 15
@@ -91,7 +105,7 @@ extension TalonViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == numberOfBallsAndOddsCollectionView {
             guard let cell = numberOfBallsAndOddsCollectionView.dequeueReusableCell(withReuseIdentifier: NumberOfBallsAndOddsCollectionViewCell.id, for: indexPath) as? NumberOfBallsAndOddsCollectionViewCell else { return UICollectionViewCell()}
-            cell.set(numOfBalls: indexPath.row)
+            cell.set(numOfBalls: indexPath.row + 1)
             return cell
         }
         

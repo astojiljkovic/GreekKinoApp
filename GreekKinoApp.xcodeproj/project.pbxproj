@@ -28,6 +28,7 @@
 		5506D2A928CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5506D2A728CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib */; };
 		5506D2AD28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2AB28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.swift */; };
 		5506D2AE28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5506D2AC28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.xib */; };
+		5506D2B128CF59260044EAF4 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2B028CF59260044EAF4 /* LiveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		5506D2A728CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalonNumbersCollectionViewCell.xib; sourceTree = "<group>"; };
 		5506D2AB28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfBallsAndOddsCollectionViewCell.swift; sourceTree = "<group>"; };
 		5506D2AC28CEA06B0044EAF4 /* NumberOfBallsAndOddsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberOfBallsAndOddsCollectionViewCell.xib; sourceTree = "<group>"; };
+		5506D2B028CF59260044EAF4 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				5506D29E28CD304A0044EAF4 /* TabBarViewController.swift */,
 				5506D29128CB94EF0044EAF4 /* Landing */,
 				5506D2A228CDF3630044EAF4 /* Talon */,
+				5506D2AF28CF58E80044EAF4 /* Live */,
 				5506D28E28CB934F0044EAF4 /* Model */,
 				5506D28B28CB8F850044EAF4 /* Utils */,
 				5506D27B28CB88D00044EAF4 /* Main.storyboard */,
@@ -176,6 +179,14 @@
 			path = NumberOfBallsAndOddsCell;
 			sourceTree = "<group>";
 		};
+		5506D2AF28CF58E80044EAF4 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				5506D2B028CF59260044EAF4 /* LiveViewController.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,6 +263,7 @@
 			files = (
 				5506D28A28CB8F6B0044EAF4 /* Router.swift in Sources */,
 				5506D29A28CCCC6F0044EAF4 /* Extensions.swift in Sources */,
+				5506D2B128CF59260044EAF4 /* LiveViewController.swift in Sources */,
 				5506D2A828CDF7E00044EAF4 /* TalonNumbersCollectionViewCell.swift in Sources */,
 				5506D29F28CD304A0044EAF4 /* TabBarViewController.swift in Sources */,
 				5506D27A28CB88D00044EAF4 /* LandingViewController.swift in Sources */,

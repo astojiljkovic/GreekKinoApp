@@ -68,6 +68,19 @@ class TabBarViewController: UITabBarController {
             tab.imageInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         }
         tabBar.tintColor = .systemYellow
-//        tabBar.barTintColor = .systemYellow
+        
+    }
+    
+    func setSelectedGame(selectedGame: Game) {
+        guard let viewControllers = viewControllers else { return }
+        setTalonSelectedGame(selectedGame: selectedGame, viewControllers: viewControllers)
+    }
+    
+    func setTalonSelectedGame(selectedGame: Game, viewControllers: [UIViewController]) {
+        for vc in viewControllers {
+            if let talonVC = vc as? TalonViewController {
+                talonVC.setSelectedGame(selectedGame: selectedGame)
+            }
+        }
     }
 }

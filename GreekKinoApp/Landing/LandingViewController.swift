@@ -28,6 +28,10 @@ class LandingViewController: UIViewController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
+    
     private func setup() {
         fetchData()
         registerNibs()
@@ -58,7 +62,7 @@ class LandingViewController: UIViewController {
     // TODO: Check so it doesn't always push on the stack when clicked on table row
     // TODO: Check if its ok here to push to talonviewcontroller instead of tabbar and whats the diff
     private func transitionToTabBarVC(selectedGame: Game) {
-        let vc = UIStoryboard.talonViewController
+        let vc = UIStoryboard.tabBarViewController
         vc.setSelectedGame(selectedGame: selectedGame)
         navigationController?.pushViewController(vc, animated: true)
     }

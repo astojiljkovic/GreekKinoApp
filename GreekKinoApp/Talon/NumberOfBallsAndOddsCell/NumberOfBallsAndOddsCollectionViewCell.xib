@@ -27,20 +27,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="re0-3u-2bi">
-                                <rect key="frame" x="10" y="34.5" width="80" height="55.5"/>
+                                <rect key="frame" x="10" y="40.5" width="80" height="49.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6HR-Zh-pL6">
+                                <rect key="frame" x="0.0" y="43" width="100" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="BRG-l9-4bM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="re0-3u-2bi" firstAttribute="firstBaseline" secondItem="9G4-OQ-cBY" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="1Pu-YR-0oO"/>
+                            <constraint firstItem="re0-3u-2bi" firstAttribute="firstBaseline" secondItem="9G4-OQ-cBY" secondAttribute="baseline" constant="30" id="1Pu-YR-0oO"/>
+                            <constraint firstItem="6HR-Zh-pL6" firstAttribute="top" secondItem="9G4-OQ-cBY" secondAttribute="bottom" constant="12" id="3ux-4O-3af"/>
                             <constraint firstAttribute="trailing" secondItem="re0-3u-2bi" secondAttribute="trailing" constant="10" id="96E-nF-xK9"/>
                             <constraint firstAttribute="bottom" secondItem="re0-3u-2bi" secondAttribute="bottom" constant="10" id="WA9-1B-ZQp"/>
                             <constraint firstAttribute="trailing" secondItem="9G4-OQ-cBY" secondAttribute="trailing" constant="20" id="aGo-jf-xbj"/>
                             <constraint firstItem="re0-3u-2bi" firstAttribute="leading" secondItem="IIv-Y9-Cft" secondAttribute="leading" constant="10" id="akr-vS-W4R"/>
                             <constraint firstItem="9G4-OQ-cBY" firstAttribute="top" secondItem="IIv-Y9-Cft" secondAttribute="top" constant="10" id="qqe-DC-ZXs"/>
+                            <constraint firstAttribute="trailing" secondItem="6HR-Zh-pL6" secondAttribute="trailing" id="rad-BK-f2O"/>
+                            <constraint firstItem="6HR-Zh-pL6" firstAttribute="leading" secondItem="IIv-Y9-Cft" secondAttribute="leading" id="rtK-sS-qws"/>
                             <constraint firstItem="9G4-OQ-cBY" firstAttribute="leading" secondItem="IIv-Y9-Cft" secondAttribute="leading" constant="20" id="vh7-O0-Zyc"/>
                         </constraints>
                     </view>
@@ -58,6 +68,7 @@
                 <outlet property="baseView" destination="IIv-Y9-Cft" id="ZL6-IC-bc8"/>
                 <outlet property="numberOfBallsLabel" destination="9G4-OQ-cBY" id="0LY-9V-YHY"/>
                 <outlet property="oddsLabel" destination="re0-3u-2bi" id="KO1-M3-e4z"/>
+                <outlet property="separatorView" destination="6HR-Zh-pL6" id="tr6-op-srF"/>
             </connections>
             <point key="canvasLocation" x="168.11594202898553" y="98.4375"/>
         </collectionViewCell>
