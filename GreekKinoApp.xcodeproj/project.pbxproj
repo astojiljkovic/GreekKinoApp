@@ -34,6 +34,7 @@
 		5506D2B928CFD7440044EAF4 /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5506D2B728CFD7440044EAF4 /* ResultsTableViewCell.xib */; };
 		5506D2BB28CFFA6F0044EAF4 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2BA28CFFA6F0044EAF4 /* ResultModel.swift */; };
 		5506D2BD28D0C5370044EAF4 /* TalonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2BC28D0C5370044EAF4 /* TalonViewModel.swift */; };
+		5506D2C028D0C8900044EAF4 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5506D2BF28D0C8900044EAF4 /* LandingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		5506D2B728CFD7440044EAF4 /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		5506D2BA28CFFA6F0044EAF4 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		5506D2BC28D0C5370044EAF4 /* TalonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalonViewModel.swift; sourceTree = "<group>"; };
+		5506D2BF28D0C8900044EAF4 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				5506D29B28CCD14A0044EAF4 /* LandingHeaderView */,
 				5506D29228CC837A0044EAF4 /* LandingTableViewCell */,
 				5506D27928CB88D00044EAF4 /* LandingViewController.swift */,
+				5506D2BF28D0C8900044EAF4 /* LandingViewModel.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				5506D29028CB93A60044EAF4 /* GameModel.swift in Sources */,
 				5506D29528CC83D10044EAF4 /* LandingTableViewCell.swift in Sources */,
 				5506D29828CC84210044EAF4 /* Utils.swift in Sources */,
+				5506D2C028D0C8900044EAF4 /* LandingViewModel.swift in Sources */,
 				5506D2A128CD39EB0044EAF4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

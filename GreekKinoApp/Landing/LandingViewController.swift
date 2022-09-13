@@ -17,6 +17,8 @@ class LandingViewController: UIViewController {
         }
     }
     
+    var viewModel: LandingViewModel?
+    
     var headerView: LandingHeaderView?
     
     @IBOutlet weak var table: UITableView!
@@ -25,15 +27,16 @@ class LandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = LandingViewModel(view: self)
         setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchData()
+        viewModel?.fetchData()
     }
     
     private func setup() {
-        fetchData()
+        viewModel?.fetchData()
         registerNibs()
         setupTable()
     }
@@ -43,23 +46,16 @@ class LandingViewController: UIViewController {
         table.tableHeaderView = headerView
     }
     
-    private func fetchData() {
-        APICaller.shared.fetchUpcomingGames { [weak self] result in
-            switch result {
-            case .success(let games):
-                DispatchQueue.main.async {
-                    self?.dataSource = games
-                }
-            case .failure(let error):
-                print(error)
-            }
+    func fillDataSource(games: [Game]) {
+        DispatchQueue.main.async {
+            self.dataSource = games
         }
     }
     
     private func registerNibs() {
         table.register(LandingTableViewCell.nib, forCellReuseIdentifier: LandingTableViewCell.id)
     }
-    // TODO: Check so it doesn't always push on the stack when clicked on table row
+    
     private func transitionToTabBarVC(selectedGame: Game) {
         let vc = UIStoryboard.tabBarViewController
         vc.setSelectedGame(selectedGame: selectedGame)
