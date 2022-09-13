@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LandingHeaderView: UIView {
+class GameHeaderView: UIView {
     
     // MARK: - Properties
 

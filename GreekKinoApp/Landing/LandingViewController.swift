@@ -19,7 +19,7 @@ class LandingViewController: UIViewController {
     
     var viewModel: LandingViewModel?
     
-    var headerView: LandingHeaderView?
+    var headerView: GameHeaderView?
     
     @IBOutlet weak var table: UITableView!
     
@@ -42,7 +42,7 @@ class LandingViewController: UIViewController {
     }
     
     private func setupTable() {
-        headerView = LandingHeaderView(frame: .zero)
+        headerView = GameHeaderView(frame: .zero)
         table.tableHeaderView = headerView
     }
     

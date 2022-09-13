@@ -28,11 +28,13 @@ class ResultsTableViewCell: UITableViewCell, XibTableCellInitializable {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
+        layout.headerReferenceSize = CGSize(width: collectionView.frame.size.width, height: UILabel().frame.size.height + 20)
         collectionView.collectionViewLayout = layout
     }
     
     private func registerNibs() {
         collectionView.register(TalonNumbersCollectionViewCell.nib, forCellWithReuseIdentifier: TalonNumbersCollectionViewCell.id)
+        collectionView.register(CellHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellHeaderCollectionReusableView.identifier)
     }
     
 }
@@ -50,5 +52,11 @@ extension ResultsTableViewCell: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TalonNumbersCollectionViewCell.id, for: indexPath) as? TalonNumbersCollectionViewCell else { return UICollectionViewCell()}
         cell.set(with: indexPath.row + 1)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellHeaderCollectionReusableView.identifier, for: indexPath) as! CellHeaderCollectionReusableView
+        header.configure()
+        return header
     }
 }
