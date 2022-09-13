@@ -28,7 +28,8 @@ class NumberOfBallsAndOddsCollectionViewCell: UICollectionViewCell, XibCollectio
         separatorView.layer.borderColor = UIColor.systemGray.cgColor
     }
     
-    func set(numOfBalls: Int) {
+    func set(numOfBalls: Int, odd: Double) {
         numberOfBallsLabel.text = String(numOfBalls)
+        oddsLabel.text = String(odd)
     }
 }

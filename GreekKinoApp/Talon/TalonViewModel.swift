@@ -1,34 +1,31 @@
 //
-//  LandingTableViewCell.swift
+//  TalonViewModel.swift
 //  GreekKinoApp
 //
-//  Created by Aleksa Stojiljkovic on 10.9.22..
+//  Created by Aleksa Stojiljkovic on 13.9.22..
 //
 
 import UIKit
 
-class LandingTableViewCell: UITableViewCell, XibTableCellInitializable {
+class TalonViewModel {
     
     private var timer = Timer()
     private var seconds = 0.0
     private var isTimerRunning = false
     
-    @IBOutlet weak var baseView: UIView!
-    @IBOutlet weak var gameStartTimeLabel: UILabel!
-    @IBOutlet weak var remainingTimeLabel: UILabel!
+    weak var view: TalonViewController?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    init(view: TalonViewController) {
+        self.view = view
     }
     
-    func set(with model: Game) {
-        let date = Date(timeIntervalSince1970: Double(model.drawTime/1000))
+    func getRunTimer(selectedGame: Game) {
+        let date = Date(timeIntervalSince1970: Double(selectedGame.drawTime/1000))
         let differenceInSeconds = date.timeIntervalSince(Date())
         seconds = differenceInSeconds
         if isTimerRunning == false {
             runTimer()
         }
-        gameStartTimeLabel.text = date.parsedTime()
     }
     
     func runTimer() {
@@ -42,9 +39,11 @@ class LandingTableViewCell: UITableViewCell, XibTableCellInitializable {
             timer.invalidate()
         } else {
             seconds -= 1
-            remainingTimeLabel.text = timeString(time: TimeInterval(seconds))
+            let timeString = timeString(time: TimeInterval(seconds))
+            view?.setTimeRemainingValue(timeString: timeString)
         }
     }
+    
     
     func timeString(time: TimeInterval) -> String {
         let hours = Int(time) / 3600
@@ -52,4 +51,5 @@ class LandingTableViewCell: UITableViewCell, XibTableCellInitializable {
         let seconds = Int(time) % 60
         return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
     }
+    
 }

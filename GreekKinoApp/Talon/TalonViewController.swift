@@ -14,6 +14,9 @@ class TalonViewController: UIViewController {
     private var selectedGame: Game?
     private var ballCounter: Int = 0
     private var selectedNumbers: [Int] = []
+    private var odds: [Double] = [3.75, 14, 65, 275, 1350, 6500, 25000, 50000, 80000, 100000, 120000, 150000, 180000, 200000, 220000]
+    
+    var viewModel: TalonViewModel?
     
     @IBOutlet weak var selectedGameInfoView: UIView!
     @IBOutlet weak var selectedGameInfoLabel: UILabel!
@@ -36,6 +39,7 @@ class TalonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = TalonViewModel(view: self)
         setup()
         setupSelectedGameInfo()
         registerNibs()
@@ -48,6 +52,10 @@ class TalonViewController: UIViewController {
         timeRemeiningLabel.text = "Preostalo vreme:"
         numberOfSelectedBallsLabel.textAlignment = .center
         numberOfSelectedBallsValueLabel.text = String(ballCounter)
+        
+        if let selectedGame = selectedGame {
+            viewModel?.getRunTimer(selectedGame: selectedGame)
+        }
     }
     
     private func setupSelectedGameInfo() {
@@ -102,6 +110,10 @@ class TalonViewController: UIViewController {
     func setSelectedGame(selectedGame: Game) {
         self.selectedGame = selectedGame
     }
+    
+    func setTimeRemainingValue(timeString: String) {
+        timeRemainingValueLabel.text = timeString
+    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
@@ -118,7 +130,7 @@ extension TalonViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == numberOfBallsAndOddsCollectionView {
             guard let cell = numberOfBallsAndOddsCollectionView.dequeueReusableCell(withReuseIdentifier: NumberOfBallsAndOddsCollectionViewCell.id, for: indexPath) as? NumberOfBallsAndOddsCollectionViewCell else { return UICollectionViewCell()}
-            cell.set(numOfBalls: indexPath.row + 1)
+            cell.set(numOfBalls: indexPath.row + 1,odd: odds[indexPath.row])
             return cell
         }
         
