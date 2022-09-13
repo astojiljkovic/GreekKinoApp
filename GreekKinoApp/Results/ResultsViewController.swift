@@ -11,49 +11,81 @@ class ResultsViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var tableView: UITableView!
-
+    private var dataSource: [GameResult]? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
+    var viewModel: ResultsViewModel?
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = ResultsViewModel(view: self)
+        setupCollectionView()
         registerNibs()
-        fetchData()
+        viewModel?.fetchData()
     }
     
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.headerReferenceSize = CGSize(width: collectionView.frame.width, height: 30)
+        collectionView.collectionViewLayout = layout
+    }
+
     private func registerNibs() {
-        tableView.register(ResultsTableViewCell.nib, forCellReuseIdentifier: ResultsTableViewCell.id)
+        collectionView.register(TalonNumbersCollectionViewCell.nib, forCellWithReuseIdentifier: TalonNumbersCollectionViewCell.id)
+        collectionView.register(CellHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellHeaderCollectionReusableView.identifier)
     }
     
-    private func fetchData() {
-        APICaller.shared.fetchResults { results in
-            switch results {
-            case .success(let gameResults):
-                print("1")
-            case .failure(let error):
-                print(error.localizedDescription)
-                print("2")
-            }
+    func fillDataSource(gameResults: [GameResult]) {
+        DispatchQueue.main.async {
+            self.dataSource = gameResults
         }
     }
 }
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
-extension ResultsViewController: UITableViewDelegate {
+extension ResultsViewController: UICollectionViewDelegate {
     
 }
 
-extension ResultsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+extension ResultsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultsTableViewCell.id) as? ResultsTableViewCell else { return UITableViewCell() }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TalonNumbersCollectionViewCell.id, for: indexPath) as? TalonNumbersCollectionViewCell else { return UICollectionViewCell() }
+        if let dataSource = dataSource {
+            for gameResult in dataSource {
+                for winningNumber in gameResult.winningNumbers.list{
+                    cell.set(with: winningNumber)
+                    return cell
+                }
+            }
+        }
+//        cell.set(with: indexPath.row + 1)
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellHeaderCollectionReusableView.identifier, for: indexPath) as! CellHeaderCollectionReusableView
+        header.configure()
+        return header
     }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        guard let numberOfSections = dataSource?.count else { return 1}
+        return numberOfSections
+    }
+    
 }

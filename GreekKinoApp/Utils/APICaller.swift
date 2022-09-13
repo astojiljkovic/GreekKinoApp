@@ -12,9 +12,6 @@ class APICaller {
     private init() {}
     
     func fetchUpcomingGames(completion: @escaping(Result<[Game], Error>) -> Void) {
-        //print(Date().parsedDate())
-//        print(Date().getDayBefore())
-        
         guard let url = URL(string: Constants.apiForUpcoming) else { return }
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
@@ -32,11 +29,11 @@ class APICaller {
     
     func fetchResults(completion: @escaping(Result<[GameResult],Error>) -> Void) {
         guard let url = URL(string: Constants.apiForResults) else { return }
+        
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return }
             do {
                 let results = try JSONDecoder().decode(GameResultResponse.self, from: data)
-                print(results)
                 completion(.success(results.content))
             } catch {
                 completion(.failure(error))

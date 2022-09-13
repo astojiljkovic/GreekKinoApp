@@ -13,9 +13,8 @@ class TalonViewController: UIViewController {
     
     private var selectedGame: Game?
     private var ballCounter: Int = 0
-    private var selectedNumbers: [Int] = []
     private var odds: [Double] = [3.75, 14, 65, 275, 1350, 6500, 25000, 50000, 80000, 100000, 120000, 150000, 180000, 200000, 220000]
-    
+    private var selectedNumbers: Set<Int> = []
     var viewModel: TalonViewModel?
     
     @IBOutlet weak var selectedGameInfoView: UIView!
@@ -110,9 +109,7 @@ class TalonViewController: UIViewController {
     }
     
     private func removeSelectedNumber(at index: Int) {
-        if let selectedGameIndex = selectedNumbers.firstIndex(of: index) {
-            selectedNumbers.remove(at: selectedGameIndex)
-        }
+        selectedNumbers.remove(index)
     }
 }
 
@@ -155,7 +152,7 @@ extension TalonViewController: UICollectionViewDelegate {
                     removeSelectedNumber(at: indexPath.row)
                 } else {
                     ballCounter += 1
-                    selectedNumbers.append(indexPath.row)
+                    selectedNumbers.insert(indexPath.row)
                 }
                 updateBallCounter()
             } else {

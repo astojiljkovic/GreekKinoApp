@@ -307,27 +307,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QKA-fb-91v">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zp5-Hg-SNw">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="QF9-YJ-FLi" id="jPS-8q-JlS"/>
-                                    <outlet property="delegate" destination="QF9-YJ-FLi" id="hvq-EJ-sRW"/>
-                                </connections>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gd5-o5-UE4">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VMZ-uY-pn1">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KCp-4V-TA9">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xkS-id-gcE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xkS-id-gcE" firstAttribute="trailing" secondItem="QKA-fb-91v" secondAttribute="trailing" id="8t8-rv-ZgS"/>
-                            <constraint firstItem="QKA-fb-91v" firstAttribute="top" secondItem="xkS-id-gcE" secondAttribute="top" id="Uuh-Qa-rC5"/>
-                            <constraint firstItem="QKA-fb-91v" firstAttribute="leading" secondItem="xkS-id-gcE" secondAttribute="leading" id="rWp-5w-ehA"/>
-                            <constraint firstItem="xkS-id-gcE" firstAttribute="bottom" secondItem="QKA-fb-91v" secondAttribute="bottom" id="yaR-zc-u5V"/>
+                            <constraint firstItem="zp5-Hg-SNw" firstAttribute="top" secondItem="xkS-id-gcE" secondAttribute="top" id="FAd-6W-xVr"/>
+                            <constraint firstItem="xkS-id-gcE" firstAttribute="trailing" secondItem="zp5-Hg-SNw" secondAttribute="trailing" id="mP1-MH-AuW"/>
+                            <constraint firstItem="xkS-id-gcE" firstAttribute="bottom" secondItem="zp5-Hg-SNw" secondAttribute="bottom" id="qxA-Ir-IOH"/>
+                            <constraint firstItem="zp5-Hg-SNw" firstAttribute="leading" secondItem="xkS-id-gcE" secondAttribute="leading" id="uUI-yC-V1z"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="eJ1-iS-gEf"/>
                     <connections>
-                        <outlet property="tableView" destination="QKA-fb-91v" id="oKf-iT-aPz"/>
+                        <outlet property="collectionView" destination="zp5-Hg-SNw" id="3WD-4n-wSa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28g-kk-dig" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
