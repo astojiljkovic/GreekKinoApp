@@ -12,6 +12,8 @@ class TalonViewController: UIViewController {
     // MARK: - Properties
     
     private var selectedGame: Game?
+    private var ballCounter: Int = 0
+    private var selectedNumbers: [Int] = []
     
     @IBOutlet weak var selectedGameInfoView: UIView!
     @IBOutlet weak var selectedGameInfoLabel: UILabel!
@@ -44,8 +46,9 @@ class TalonViewController: UIViewController {
     private func setup() {
         numberOfSelectedBallsLabel.text = "Br. izabranih loptica:"
         timeRemeiningLabel.text = "Preostalo vreme:"
+        numberOfSelectedBallsLabel.textAlignment = .center
+        numberOfSelectedBallsValueLabel.text = String(ballCounter)
     }
-    
     
     private func setupSelectedGameInfo() {
         
@@ -86,6 +89,16 @@ class TalonViewController: UIViewController {
         numberOfBallsAndOddsCollectionView.register(NumberOfBallsAndOddsCollectionViewCell.nib, forCellWithReuseIdentifier: NumberOfBallsAndOddsCollectionViewCell.id)
     }
     
+    private func updateBallCounter() {
+        numberOfSelectedBallsValueLabel.text = String(ballCounter)
+    }
+    
+    private func removeSelectedNumber(at index: Int) {
+        if let selectedGameIndex = selectedNumbers.firstIndex(of: index) {
+            selectedNumbers.remove(at: selectedGameIndex)
+        }
+    }
+    
     func setSelectedGame(selectedGame: Game) {
         self.selectedGame = selectedGame
     }
@@ -122,7 +135,25 @@ extension TalonViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == numbersCollectionView {
             guard let cell = numbersCollectionView.cellForItem(at: indexPath) as? TalonNumbersCollectionViewCell else { return }
-            cell.checkIfCellIsSelected()
+            
+            if ballCounter <= 14 {
+                let isSelected = cell.checkIfCellIsSelected()
+                if isSelected {
+                    ballCounter -= 1
+                    removeSelectedNumber(at: indexPath.row)
+                } else {
+                    ballCounter += 1
+                    selectedNumbers.append(indexPath.row)
+                }
+                updateBallCounter()
+            } else {
+                if selectedNumbers.contains(indexPath.row) {
+                    removeSelectedNumber(at: indexPath.row)
+                    cell.unSelect()
+                    ballCounter -= 1
+                    updateBallCounter()
+                }
+            }
         }
     }
 }

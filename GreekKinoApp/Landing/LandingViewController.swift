@@ -60,7 +60,6 @@ class LandingViewController: UIViewController {
         table.register(LandingTableViewCell.nib, forCellReuseIdentifier: LandingTableViewCell.id)
     }
     // TODO: Check so it doesn't always push on the stack when clicked on table row
-    // TODO: Check if its ok here to push to talonviewcontroller instead of tabbar and whats the diff
     private func transitionToTabBarVC(selectedGame: Game) {
         let vc = UIStoryboard.tabBarViewController
         vc.setSelectedGame(selectedGame: selectedGame)

@@ -11,7 +11,6 @@ class APICaller {
     static let shared = APICaller()
     private init() {}
     
-    // this could use async await, check it out
     func fetchUpcomingGames(completion: @escaping(Result<[Game], Error>) -> Void) {
         
         guard let url = URL(string: Constats.apiForUpcoming) else { return }

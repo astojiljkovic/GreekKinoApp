@@ -20,8 +20,6 @@ class TalonNumbersCollectionViewCell: UICollectionViewCell, XibCollectionViewCel
         setup()
     }
     
-    // TODO: for setting up background color and themes
-    
     private func setup() {
         numberLabel.numberOfLines = 0
         numberLabel.textAlignment = .center
@@ -34,15 +32,21 @@ class TalonNumbersCollectionViewCell: UICollectionViewCell, XibCollectionViewCel
         numberLabel.text = String(number)
     }
     
-    func checkIfCellIsSelected() {
+    func checkIfCellIsSelected() -> Bool {
         if isCellSelected {
             numberBaseView.layer.borderWidth = 0
             isCellSelected = false
+            return true
         } else {
             numberBaseView.layer.borderWidth = 2
             numberBaseView.layer.cornerRadius = numberBaseView.frame.size.width/2
             numberBaseView.layer.borderColor = UIColor.systemBlue.cgColor
             isCellSelected = true
+            return false
         }
+    }
+    func unSelect() {
+        numberBaseView.layer.borderWidth = 0
+        isCellSelected = false
     }
 }
