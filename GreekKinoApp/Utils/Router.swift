@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct Constats {
+struct Constants {
     static let apiForUpcoming = "https://api.opap.gr/draws/v3.0/1100/upcoming/20"
     static let live = "https://ds.opap.gr/web_kino/kinoIframe.html?link=https://ds.opap.gr/web_kino/kino/html/Internet_PRODUCTION/KinoDraw_201910.html&resolution=847x500"
+    static let apiForResults = "https://api.opap.gr/draws/v3.0/1100/draw-date/\(Date().parsedDate())/\(Date().parsedDate())"
 }

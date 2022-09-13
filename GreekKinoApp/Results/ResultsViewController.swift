@@ -18,10 +18,23 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibs()
+        fetchData()
     }
     
     private func registerNibs() {
         tableView.register(ResultsTableViewCell.nib, forCellReuseIdentifier: ResultsTableViewCell.id)
+    }
+    
+    private func fetchData() {
+        APICaller.shared.fetchResults { results in
+            switch results {
+            case .success(let gameResults):
+                print("1")
+            case .failure(let error):
+                print(error.localizedDescription)
+                print("2")
+            }
+        }
     }
 }
 

@@ -14,9 +14,9 @@ struct GameResultResponse: Codable {
 struct GameResult: Codable {
     let drawId: Int
     let drawTime: Int
-    let winningNumbers: [WinningNumber]
+    let winningNumbers: WinningNumbers
 }
 
-struct WinningNumber: Codable {
+struct WinningNumbers: Codable {
     let list: [Int]
 }

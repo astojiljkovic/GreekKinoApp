@@ -10,7 +10,7 @@ import UIKit
 extension Date {
     func parsedDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: self)
         return dateString
     }
@@ -20,6 +20,17 @@ extension Date {
         dateFormatter.dateFormat = "HH:mm"
         let dateString = dateFormatter.string(from: self)
         return dateString
+    }
+    
+    func getDayBefore() -> String {
+        let date = Calendar.current.date(byAdding: .day, value: -1, to: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = date {
+            let dateString = dateFormatter.string(from: date)
+            return dateString
+        }
+       return ""
     }
 }
 

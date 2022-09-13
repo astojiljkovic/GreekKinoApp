@@ -9,9 +9,8 @@ import UIKit
 
 class LandingTableViewCell: UITableViewCell, XibTableCellInitializable {
     
-    private var timer = Timer()
+    private var timer: Timer?
     private var seconds = 0.0
-    private var isTimerRunning = false
     
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var gameStartTimeLabel: UILabel!
@@ -21,32 +20,46 @@ class LandingTableViewCell: UITableViewCell, XibTableCellInitializable {
         super.awakeFromNib()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stopTimer()
+    }
+    
     func set(with model: Game) {
         let date = Date(timeIntervalSince1970: Double(model.drawTime/1000))
         let differenceInSeconds = date.timeIntervalSince(Date())
         seconds = differenceInSeconds
-        if isTimerRunning == false {
+        updateTimeLabelWithSeconds()
+        if timer == nil {
             runTimer()
         }
         gameStartTimeLabel.text = date.parsedTime()
     }
     
-    func runTimer() {
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    private func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        isTimerRunning = true
     }
     
     @objc
-    func updateTimer() {
+    private func updateTimer() {
         if seconds < 1 {
-            timer.invalidate()
+            stopTimer()
         } else {
             seconds -= 1
-            remainingTimeLabel.text = timeString(time: TimeInterval(seconds))
+            updateTimeLabelWithSeconds()
         }
     }
     
-    func timeString(time: TimeInterval) -> String {
+    private func updateTimeLabelWithSeconds() {
+        remainingTimeLabel.text = timeString(time: TimeInterval(seconds))
+    }
+    
+    private func timeString(time: TimeInterval) -> String {
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60

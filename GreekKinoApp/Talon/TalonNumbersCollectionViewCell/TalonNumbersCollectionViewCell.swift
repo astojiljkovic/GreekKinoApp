@@ -45,6 +45,7 @@ class TalonNumbersCollectionViewCell: UICollectionViewCell, XibCollectionViewCel
             return false
         }
     }
+    
     func unSelect() {
         numberBaseView.layer.borderWidth = 0
         isCellSelected = false

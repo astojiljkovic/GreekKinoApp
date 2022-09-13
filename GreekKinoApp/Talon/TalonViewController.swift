@@ -47,6 +47,14 @@ class TalonViewController: UIViewController {
         setupNumberOfBallsAndOddsCollectionView()
     }
     
+    func setSelectedGame(selectedGame: Game) {
+        self.selectedGame = selectedGame
+    }
+    
+    func setTimeRemainingValue(timeString: String) {
+        timeRemainingValueLabel.text = timeString
+    }
+    
     private func setup() {
         numberOfSelectedBallsLabel.text = "Br. izabranih loptica:"
         timeRemeiningLabel.text = "Preostalo vreme:"
@@ -106,14 +114,6 @@ class TalonViewController: UIViewController {
             selectedNumbers.remove(at: selectedGameIndex)
         }
     }
-    
-    func setSelectedGame(selectedGame: Game) {
-        self.selectedGame = selectedGame
-    }
-    
-    func setTimeRemainingValue(timeString: String) {
-        timeRemainingValueLabel.text = timeString
-    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
@@ -128,7 +128,7 @@ extension TalonViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == numberOfBallsAndOddsCollectionView {
+        if collectionView === numberOfBallsAndOddsCollectionView {
             guard let cell = numberOfBallsAndOddsCollectionView.dequeueReusableCell(withReuseIdentifier: NumberOfBallsAndOddsCollectionViewCell.id, for: indexPath) as? NumberOfBallsAndOddsCollectionViewCell else { return UICollectionViewCell()}
             cell.set(numOfBalls: indexPath.row + 1,odd: odds[indexPath.row])
             return cell
@@ -137,7 +137,7 @@ extension TalonViewController: UICollectionViewDataSource {
         guard let cell = numbersCollectionView.dequeueReusableCell(withReuseIdentifier: TalonNumbersCollectionViewCell.id, for: indexPath) as? TalonNumbersCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
+        // TODO: fix so when we scroll down, selected cell doesn't move
         cell.set(with: indexPath.row + 1)
         return cell
     }

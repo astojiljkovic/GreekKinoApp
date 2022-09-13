@@ -9,21 +9,19 @@ import UIKit
 import WebKit
 
 class LiveViewController: UIViewController {
-
-    let webView = WKWebView()
+    
+    @IBOutlet weak var webView: WKWebView!
     
     // TODO: Fix size of the window 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(webView)
-        
-        guard let url = URL(string: Constats.live) else { return }
-        
+        guard let url = URL(string: Constants.live) else { return }
         webView.load(URLRequest(url: url))
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        webView.frame = view.bounds
-    }
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        webView.frame = view.bounds
+//    }
+    
 }

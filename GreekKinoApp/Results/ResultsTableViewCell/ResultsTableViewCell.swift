@@ -30,6 +30,7 @@ class ResultsTableViewCell: UITableViewCell, XibTableCellInitializable {
         layout.minimumInteritemSpacing = 0
         layout.headerReferenceSize = CGSize(width: collectionView.frame.size.width, height: UILabel().frame.size.height + 20)
         collectionView.collectionViewLayout = layout
+        
     }
     
     private func registerNibs() {

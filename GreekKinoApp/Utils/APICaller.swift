@@ -12,8 +12,10 @@ class APICaller {
     private init() {}
     
     func fetchUpcomingGames(completion: @escaping(Result<[Game], Error>) -> Void) {
+        //print(Date().parsedDate())
+//        print(Date().getDayBefore())
         
-        guard let url = URL(string: Constats.apiForUpcoming) else { return }
+        guard let url = URL(string: Constants.apiForUpcoming) else { return }
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return }
@@ -29,6 +31,17 @@ class APICaller {
     }
     
     func fetchResults(completion: @escaping(Result<[GameResult],Error>) -> Void) {
-        // TODO: need to get 2 dates, yesterday and today so i can put them into url, check notlfix
+        guard let url = URL(string: Constants.apiForResults) else { return }
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else { return }
+            do {
+                let results = try JSONDecoder().decode(GameResultResponse.self, from: data)
+                print(results)
+                completion(.success(results.content))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
     }
 }

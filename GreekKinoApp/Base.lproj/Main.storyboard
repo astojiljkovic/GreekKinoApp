@@ -271,10 +271,29 @@
                     <view key="view" contentMode="scaleToFill" id="CQT-yc-57p">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iil-Hr-7AA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gTt-4H-UVo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iil-Hr-7AA" firstAttribute="bottom" secondItem="gTt-4H-UVo" secondAttribute="bottom" id="34Z-AE-GiI"/>
+                            <constraint firstItem="iil-Hr-7AA" firstAttribute="top" secondItem="gTt-4H-UVo" secondAttribute="top" id="6jC-jf-ijt"/>
+                            <constraint firstItem="iil-Hr-7AA" firstAttribute="trailing" secondItem="gTt-4H-UVo" secondAttribute="trailing" id="HAW-5t-hH9"/>
+                            <constraint firstItem="iil-Hr-7AA" firstAttribute="leading" secondItem="gTt-4H-UVo" secondAttribute="leading" id="pad-1i-dEG"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="8he-VN-qES"/>
+                    <connections>
+                        <outlet property="webView" destination="iil-Hr-7AA" id="zNS-am-vbB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auF-Ec-iUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
