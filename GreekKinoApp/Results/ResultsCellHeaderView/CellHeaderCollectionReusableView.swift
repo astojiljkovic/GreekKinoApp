@@ -13,18 +13,26 @@ class CellHeaderCollectionReusableView: UICollectionReusableView {
     
     lazy var selectedGameLabel: UILabel = {
         var label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.textAlignment = .center
         return label
     }()
     
-    func configure() {
+    func configure(gameResult: GameResult) {
         backgroundColor = .systemGray4
         addSubview(selectedGameLabel)
+        applyConstraints()
+        selectedGameLabel.text = "Vreme izvlacenja \(Date(timeIntervalSince1970: Double(gameResult.drawTime/1000)).parsedTime()) | Kolo: \(gameResult.drawId)"
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        selectedGameLabel.frame = bounds
+    private func applyConstraints() {
+        let selectedGameLabelConstraints = [
+            selectedGameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            selectedGameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            selectedGameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            selectedGameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+            
+        ]
+        NSLayoutConstraint.activate(selectedGameLabelConstraints)
     }
 }

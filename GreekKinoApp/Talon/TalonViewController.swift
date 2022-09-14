@@ -107,10 +107,6 @@ class TalonViewController: UIViewController {
     private func updateBallCounter() {
         numberOfSelectedBallsValueLabel.text = String(ballCounter)
     }
-    
-    private func removeSelectedNumber(at index: Int) {
-        selectedNumbers.remove(index)
-    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
@@ -134,7 +130,7 @@ extension TalonViewController: UICollectionViewDataSource {
         guard let cell = numbersCollectionView.dequeueReusableCell(withReuseIdentifier: TalonNumbersCollectionViewCell.id, for: indexPath) as? TalonNumbersCollectionViewCell else {
             return UICollectionViewCell()
         }
-        // TODO: fix so when we scroll down, selected cell doesn't move
+
         cell.set(with: indexPath.row + 1)
         return cell
     }
@@ -145,20 +141,21 @@ extension TalonViewController: UICollectionViewDelegate {
         if collectionView == numbersCollectionView {
             guard let cell = numbersCollectionView.cellForItem(at: indexPath) as? TalonNumbersCollectionViewCell else { return }
             
-            if ballCounter <= 14 {
-                let isSelected = cell.checkIfCellIsSelected()
-                if isSelected {
-                    ballCounter -= 1
-                    removeSelectedNumber(at: indexPath.row)
-                } else {
-                    ballCounter += 1
+            if ballCounter <= 14{
+                if !selectedNumbers.contains(indexPath.row) {
+                    cell.selectNumber()
                     selectedNumbers.insert(indexPath.row)
+                    ballCounter += 1
+                } else {
+                    cell.unSelect()
+                    selectedNumbers.remove(indexPath.row)
+                    ballCounter -= 1
                 }
                 updateBallCounter()
             } else {
-                if selectedNumbers.contains(indexPath.row) {
-                    removeSelectedNumber(at: indexPath.row)
+                if selectedNumbers.contains(indexPath.row){
                     cell.unSelect()
+                    selectedNumbers.remove(indexPath.row)
                     ballCounter -= 1
                     updateBallCounter()
                 }

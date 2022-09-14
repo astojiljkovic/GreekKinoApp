@@ -32,18 +32,14 @@ class TalonNumbersCollectionViewCell: UICollectionViewCell, XibCollectionViewCel
         numberLabel.text = String(number)
     }
     
-    func checkIfCellIsSelected() -> Bool {
-        if isCellSelected {
-            numberBaseView.layer.borderWidth = 0
-            isCellSelected = false
-            return true
-        } else {
-            numberBaseView.layer.borderWidth = 2
-            numberBaseView.layer.cornerRadius = numberBaseView.frame.size.width/2
-            numberBaseView.layer.borderColor = UIColor.systemBlue.cgColor
-            isCellSelected = true
-            return false
-        }
+    func setWinningNumber(with number: Int) {
+        numberLabel.text = String(number)
+    }
+    
+    func selectNumber() {
+        numberBaseView.layer.borderWidth = 2
+        numberBaseView.layer.cornerRadius = numberBaseView.frame.size.width/2
+        numberBaseView.layer.borderColor = UIColor.systemBlue.cgColor
     }
     
     func unSelect() {

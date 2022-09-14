@@ -17,6 +17,8 @@ class ResultsViewController: UIViewController {
         }
     }
     
+    private var counter: Int = 0
+    
     var viewModel: ResultsViewModel?
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -37,13 +39,21 @@ class ResultsViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.headerReferenceSize = CGSize(width: collectionView.frame.width, height: 30)
+        layout.headerReferenceSize = CGSize(width: collectionView.frame.width, height: 40)
         collectionView.collectionViewLayout = layout
     }
 
     private func registerNibs() {
         collectionView.register(TalonNumbersCollectionViewCell.nib, forCellWithReuseIdentifier: TalonNumbersCollectionViewCell.id)
         collectionView.register(CellHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellHeaderCollectionReusableView.identifier)
+    }
+    
+    private func getNextElement(numberOfSection: Int) -> [Int]? {
+        if let dataSource = dataSource {
+            let gameWinningNumbers = dataSource[numberOfSection].winningNumbers.list
+            return gameWinningNumbers
+        }
+        return nil
     }
     
     func fillDataSource(gameResults: [GameResult]) {
@@ -65,27 +75,29 @@ extension ResultsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let winningNumbers = getNextElement(numberOfSection: indexPath.section)
+
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TalonNumbersCollectionViewCell.id, for: indexPath) as? TalonNumbersCollectionViewCell else { return UICollectionViewCell() }
-        if let dataSource = dataSource {
-            for gameResult in dataSource {
-                for winningNumber in gameResult.winningNumbers.list{
-                    cell.set(with: winningNumber)
-                    return cell
-                }
-            }
+        
+        if let winningNumber = winningNumbers?[indexPath.row] {
+            cell.setWinningNumber(with: winningNumber)
         }
-//        cell.set(with: indexPath.row + 1)
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellHeaderCollectionReusableView.identifier, for: indexPath) as! CellHeaderCollectionReusableView
-        header.configure()
+        if let gameResult = dataSource?[indexPath.section] {
+            header.configure(gameResult: gameResult)
+        }
         return header
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         guard let numberOfSections = dataSource?.count else { return 1}
         return numberOfSections
     }
-    
 }
